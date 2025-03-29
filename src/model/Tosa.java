@@ -15,12 +15,7 @@ public class Tosa extends ServicoPetshop {
 
     @Override
     public String descricao() {
-        return "";
-    }
-
-    @Override
-    public String Descricao() {
-        return super.Descricao();
+        return super.descricao();
     }
 
     @Override

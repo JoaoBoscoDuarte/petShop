@@ -14,6 +14,7 @@ public abstract class ServicoPetshop implements ServicoPetshopIF {
     public ServicoPetshop(int codigo, TamanhoAnimal tamAnimal) {
         this.codigo = codigo;
         this.tamAnimal = tamAnimal;
+        this.data = LocalDate.now();
     }
 
     public double calculaPreco() {
@@ -21,8 +22,10 @@ public abstract class ServicoPetshop implements ServicoPetshopIF {
         return 0;
     }
 
-    public String Descricao() {
-        return "Descrição";
+    public String descricao() {
+        return  "Data: " + data + "\n" +
+                "Código do animal: " + codigo + "\n" +
+                "Tamanho do animal: " + tamAnimal + "\n";
     }
 
     @Override

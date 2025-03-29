@@ -1,13 +1,13 @@
 package model.enums;
 
-public enum TamanhoAnimal {
-    PEQUENO(50),
-    MEDIO(60),
-    GRANDE(70);
+public enum TempoHotel {
+    PEQUENO(12),
+    MEDIO(18),
+    GRANDE(25);
 
     private double preco;
 
-    TamanhoAnimal(double preco) {
+    TempoHotel(double preco) {
         this.preco = preco;
     }
 

@@ -1,33 +1,40 @@
 package model;
 
 import model.enums.TamanhoAnimal;
+import model.enums.TamanhoPelo;
 
 public class Banho extends ServicoPetshop {
 
-    int qtdHoras;
+    private TamanhoPelo tamPelo;
 
-    public Banho(int codigo, TamanhoAnimal tamAnimal, int qtdHoras) {
+    public Banho(int codigo, TamanhoAnimal tamAnimal, TamanhoPelo tamPelo) {
         super(codigo, tamAnimal);
-        this.qtdHoras = qtdHoras;
-    }
-
-    public Banho(int codigo, TamanhoAnimal tamAnimal) {
-        super(codigo, tamAnimal);
+        this.tamPelo = tamPelo;
     }
 
     @Override
     public double calculaPreco() {
-        return super.calculaPreco();
+        double tamanho = 0, pelo = 0;
+
+        if (this.tamAnimal == TamanhoAnimal.PEQUENO) {
+            tamanho = TamanhoAnimal.PEQUENO.getPreco();
+            pelo = TamanhoPelo.CURTO.getPreco();
+
+        } else if (this.tamAnimal == TamanhoAnimal.MEDIO) {
+            tamanho = TamanhoAnimal.MEDIO.getPreco();
+            pelo = TamanhoPelo.MEDIO.getPreco();
+
+        } else if (this.tamAnimal == TamanhoAnimal.GRANDE) {
+            tamanho = TamanhoAnimal.GRANDE.getPreco();
+            pelo = TamanhoPelo.LONGO.getPreco();
+        }
+
+        return tamanho + pelo;
     }
 
     @Override
     public String descricao() {
-        return "";
-    }
-
-    @Override
-    public String Descricao() {
-        return super.Descricao();
+        return "Preço do serviço de banho é: " + calculaPreco();
     }
 
     @Override
@@ -42,6 +49,6 @@ public class Banho extends ServicoPetshop {
 
     @Override
     public String toString() {
-        return super.toString();
+        return super.toString()  + "Tamanho do pelo: " + tamPelo;
     }
 }
