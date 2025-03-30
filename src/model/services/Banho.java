@@ -1,11 +1,13 @@
-package model;
+package model.services;
 
+import model.ServicoPetshop;
 import model.enums.TamanhoAnimal;
 import model.enums.TamanhoPelo;
 
 public class Banho extends ServicoPetshop {
 
     private TamanhoPelo tamPelo;
+    private TamanhoAnimal tamAnimal;
 
     public Banho(int codigo, TamanhoAnimal tamAnimal, TamanhoPelo tamPelo) {
         super(codigo, tamAnimal);

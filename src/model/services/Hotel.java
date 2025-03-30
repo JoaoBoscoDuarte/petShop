@@ -1,34 +1,39 @@
-package model;
+package model.services;
 
+import model.ServicoPetshop;
 import model.enums.TamanhoAnimal;
-import model.enums.TamanhoTosa;
 import model.enums.TempoHotel;
 
-public class Tosa extends ServicoPetshop {
+public class Hotel extends ServicoPetshop {
 
-    public Tosa(int codigo, TamanhoAnimal tamAnimal) {
+    private int qtdHoras;
+    private TamanhoAnimal tamAnimal;
+
+    public Hotel(int codigo, TamanhoAnimal tamAnimal, int qtdHoras) {
         super(codigo, tamAnimal);
+        this.qtdHoras = qtdHoras;
     }
 
     @Override
     public double calculaPreco() {
         double preco = 0;
+
         if (this.tamAnimal == TamanhoAnimal.PEQUENO) {
-            preco = TamanhoTosa.PEQUENO.getPreco();
+            preco = TempoHotel.PEQUENO.getPreco();
 
         } else if (this.tamAnimal == TamanhoAnimal.MEDIO) {
-            preco = TamanhoTosa.MEDIO.getPreco();
+            preco = TempoHotel.MEDIO.getPreco();
 
         } else if (this.tamAnimal == TamanhoAnimal.GRANDE) {
-            preco = TamanhoTosa.GRANDE.getPreco();
+            preco = TempoHotel.GRANDE.getPreco();
         }
 
-        return preco;
+        return qtdHoras * preco;
     }
 
     @Override
     public String descricao() {
-        return "O valor da tosa é: " + calculaPreco();
+        return "O preço do serviço de hetelzinho é de: " + calculaPreco();
     }
 
     @Override

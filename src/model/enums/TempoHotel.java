@@ -5,7 +5,7 @@ public enum TempoHotel {
     MEDIO(18),
     GRANDE(25);
 
-    private double preco;
+    private final double preco;
 
     TempoHotel(double preco) {
         this.preco = preco;

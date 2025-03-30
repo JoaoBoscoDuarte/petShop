@@ -1,9 +1,9 @@
 package facade;
 
-import model.Banho;
-import model.Hotel;
+import model.services.Banho;
+import model.services.Hotel;
 import model.InventarioPetshop;
-import model.Tosa;
+import model.services.Tosa;
 import model.enums.TamanhoAnimal;
 import model.enums.TamanhoPelo;
 

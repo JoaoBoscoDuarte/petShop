@@ -5,7 +5,7 @@ public enum TamanhoAnimal {
     MEDIO(60),
     GRANDE(70);
 
-    private double preco;
+    private final double preco;
 
     TamanhoAnimal(double preco) {
         this.preco = preco;

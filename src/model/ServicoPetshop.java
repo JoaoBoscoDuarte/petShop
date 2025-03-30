@@ -9,7 +9,7 @@ public abstract class ServicoPetshop implements ServicoPetshopIF {
 
     private LocalDate data;
     private int codigo;
-    TamanhoAnimal tamAnimal;
+    private TamanhoAnimal tamAnimal;
 
     public ServicoPetshop(int codigo, TamanhoAnimal tamAnimal) {
         this.codigo = codigo;
@@ -20,6 +20,10 @@ public abstract class ServicoPetshop implements ServicoPetshopIF {
     public double calculaPreco() {
         System.out.println("Calcular preco");
         return 0;
+    }
+
+    public TamanhoAnimal getTamAnimal() {
+        return tamAnimal;
     }
 
     public String descricao() {
