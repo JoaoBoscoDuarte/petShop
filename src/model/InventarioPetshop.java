@@ -12,10 +12,18 @@ public class InventarioPetshop {
     }
 
     public void adicionaServico(ServicoPetshop servico) {
+        if (servico == null) {
+            throw new IllegalArgumentException("Serviço não pode ser nulo");
+        }
+
         servicos.add(servico);
     }
 
     public double calculaValorServico() {
+        if (servicos == null || servicos.isEmpty()) {
+            throw new IllegalAccessError("A listas de serviço é nula");
+        }
+
         double calculo = 0;
 
         for (int i = 0; i < servicos.size(); i++) {
@@ -26,6 +34,10 @@ public class InventarioPetshop {
     }
 
     public String listaServicos() {
+//        if (servicos == null || servicos.isEmpty()) {
+//            return "Nenhum serviço cadastrado.";
+//        }
+
         String exibir = "";
 
         for (int i = 0; i < servicos.size(); i++) {

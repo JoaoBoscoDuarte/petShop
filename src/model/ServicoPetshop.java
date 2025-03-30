@@ -11,8 +11,16 @@ public abstract class ServicoPetshop implements ServicoPetshopIF {
     private int codigo;
     private TamanhoAnimal tamAnimal;
 
-    public ServicoPetshop(int codigo, TamanhoAnimal tamAnimal) {
-        this.codigo = codigo;
+    public ServicoPetshop(Object codigo, TamanhoAnimal tamAnimal) {
+        if (!(codigo instanceof Integer)) {
+            throw new IllegalArgumentException("O código deve ser um número inteiro");
+        }
+
+        if (tamAnimal == null) {
+            throw new IllegalArgumentException("Tamanho inválido!");
+        }
+
+        this.codigo = (Integer) codigo;
         this.tamAnimal = tamAnimal;
         this.data = LocalDate.now();
     }

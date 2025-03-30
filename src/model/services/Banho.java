@@ -7,10 +7,14 @@ import model.enums.TamanhoPelo;
 public class Banho extends ServicoPetshop {
 
     private TamanhoPelo tamPelo;
-    private TamanhoAnimal tamAnimal;
 
     public Banho(int codigo, TamanhoAnimal tamAnimal, TamanhoPelo tamPelo) {
         super(codigo, tamAnimal);
+
+        if (tamPelo == null) {
+            throw new IllegalArgumentException("Tamanho inválido");
+        }
+
         this.tamPelo = tamPelo;
     }
 
@@ -18,15 +22,15 @@ public class Banho extends ServicoPetshop {
     public double calculaPreco() {
         double tamanho = 0, pelo = 0;
 
-        if (this.tamAnimal == TamanhoAnimal.PEQUENO) {
+        if (getTamAnimal() == TamanhoAnimal.PEQUENO) {
             tamanho = TamanhoAnimal.PEQUENO.getPreco();
             pelo = TamanhoPelo.CURTO.getPreco();
 
-        } else if (this.tamAnimal == TamanhoAnimal.MEDIO) {
+        } else if (getTamAnimal() == TamanhoAnimal.MEDIO) {
             tamanho = TamanhoAnimal.MEDIO.getPreco();
             pelo = TamanhoPelo.MEDIO.getPreco();
 
-        } else if (this.tamAnimal == TamanhoAnimal.GRANDE) {
+        } else if (getTamAnimal() == TamanhoAnimal.GRANDE) {
             tamanho = TamanhoAnimal.GRANDE.getPreco();
             pelo = TamanhoPelo.LONGO.getPreco();
         }

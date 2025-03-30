@@ -6,8 +6,6 @@ import model.enums.TamanhoTosa;
 
 public class Tosa extends ServicoPetshop {
 
-    private TamanhoAnimal tamAnimal;
-
     public Tosa(int codigo, TamanhoAnimal tamAnimal) {
         super(codigo, tamAnimal);
     }
@@ -15,13 +13,13 @@ public class Tosa extends ServicoPetshop {
     @Override
     public double calculaPreco() {
         double preco = 0;
-        if (this.tamAnimal == TamanhoAnimal.PEQUENO) {
+        if (getTamAnimal() == TamanhoAnimal.PEQUENO) {
             preco = TamanhoTosa.PEQUENO.getPreco();
 
-        } else if (this.tamAnimal == TamanhoAnimal.MEDIO) {
+        } else if (getTamAnimal() == TamanhoAnimal.MEDIO) {
             preco = TamanhoTosa.MEDIO.getPreco();
 
-        } else if (this.tamAnimal == TamanhoAnimal.GRANDE) {
+        } else if (getTamAnimal() == TamanhoAnimal.GRANDE) {
             preco = TamanhoTosa.GRANDE.getPreco();
         }
 

@@ -11,6 +11,11 @@ public class Hotel extends ServicoPetshop {
 
     public Hotel(int codigo, TamanhoAnimal tamAnimal, int qtdHoras) {
         super(codigo, tamAnimal);
+
+        if (qtdHoras <= 0) {
+            throw new IllegalArgumentException("A quantidade de horas deve ser maior que zero!");
+        }
+
         this.qtdHoras = qtdHoras;
     }
 
@@ -18,13 +23,13 @@ public class Hotel extends ServicoPetshop {
     public double calculaPreco() {
         double preco = 0;
 
-        if (this.tamAnimal == TamanhoAnimal.PEQUENO) {
+        if (getTamAnimal() == TamanhoAnimal.PEQUENO) {
             preco = TempoHotel.PEQUENO.getPreco();
 
-        } else if (this.tamAnimal == TamanhoAnimal.MEDIO) {
+        } else if (getTamAnimal() == TamanhoAnimal.MEDIO) {
             preco = TempoHotel.MEDIO.getPreco();
 
-        } else if (this.tamAnimal == TamanhoAnimal.GRANDE) {
+        } else if (getTamAnimal() == TamanhoAnimal.GRANDE) {
             preco = TempoHotel.GRANDE.getPreco();
         }
 
