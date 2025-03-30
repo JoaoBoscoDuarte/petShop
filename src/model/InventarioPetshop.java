@@ -1,16 +1,14 @@
 package model;
 
 import interfaces.ServicoPetshopIF;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class InventarioPetshop {
-
     private List<ServicoPetshopIF> servicos;
 
-    public InventarioPetshop(List<ServicoPetshopIF> servicos) {
-        servicos = new ArrayList<>();
+    public InventarioPetshop() {
+        this.servicos = new ArrayList<>();
     }
 
     public void adicionaServico(ServicoPetshop servico) {
