@@ -47,10 +47,6 @@ public class InventarioPetshop {
         return exibir;
     }
 
-    public void gerarRelatorioArquivo() {
-
-    }
-
     public String gerarRelatorioString() {
         StringBuilder exibir = new StringBuilder();
 

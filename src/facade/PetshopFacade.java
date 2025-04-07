@@ -2,6 +2,7 @@ package facade;
 
 import model.services.Banho;
 import model.services.Hotel;
+import model.RelatorioPetshop;
 import model.InventarioPetshop;
 import model.services.Tosa;
 import model.enums.TamanhoAnimal;
@@ -9,6 +10,7 @@ import model.enums.TamanhoPelo;
 
 public class PetshopFacade {
     private InventarioPetshop inventario;
+    private RelatorioPetshop relatorioPetshop;
 
     public PetshopFacade() {
         this.inventario = new InventarioPetshop();
@@ -37,7 +39,15 @@ public class PetshopFacade {
         return inventario.listaServicos();
     }
 
-//    public void gerarRelatorio() {
-//
-//    }
+    public String gerarRelatorioString() {
+        return gerarRelatorioString();
+    }
+
+    public void gerarRelatorioArquivoTxt() {
+        relatorioPetshop.gerarRelatorioArquivoTxt();
+    }
+
+    public void lerRelatorioArquivoTxt() {
+        relatorioPetshop.lerRelatorioArquivoTxt();
+    }
 }

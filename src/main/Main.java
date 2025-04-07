@@ -87,6 +87,49 @@ public class Main {
 
     }
 
+    public void cadastrarBanho() {
+        TamanhoAnimal tamanhoAnimal = null;
+        TamanhoPelo tamanhoPelo = null;
+        int codigo = 0;
+
+        System.out.println("Banho selecionado. Insira as informações: \n");
+
+        codigo = pegarCodigoAnimal();
+        tamanhoAnimal = pegarTamanhoAnimal();
+        tamanhoPelo = pegarTamanhoPelo();
+
+        fachada.adicionaBanho(codigo, tamanhoAnimal, tamanhoPelo);
+        System.out.println("Banho cadastrado com sucesso!");
+    }
+
+    public void cadastrarHotel() {
+        TamanhoAnimal tamanhoAnimal = null;
+        int qtdHoras = 0;
+        int codigo = 0;
+
+        System.out.println("Hotelzinho selecionado. Insira as informações: \n");
+
+        codigo = pegarCodigoAnimal();
+        tamanhoAnimal = pegarTamanhoAnimal();
+        qtdHoras = pegarQtdHoras();
+
+        fachada.adicionaHotel(codigo, tamanhoAnimal, qtdHoras);
+        System.out.println("Hotelzinho cadastrado com sucesso!");
+    }
+
+    public void cadastrarTosa() {
+        TamanhoAnimal tamanhoAnimal = null;
+        int codigo = 0;
+
+        System.out.println("Tosa selecionado. Insira as informações: \n");
+
+        codigo = pegarCodigoAnimal();
+        tamanhoAnimal = pegarTamanhoAnimal();
+
+        fachada.adicionaTosa(codigo, tamanhoAnimal);
+        System.out.println("Tosa cadastrada com sucesso!");
+    }
+
     public void calcularServico() {
         System.out.println("Serviço calculado com sucesso: ");
         System.out.println(fachada.calculaServico());
@@ -98,8 +141,21 @@ public class Main {
     }
 
     public void gerarRelatorio() {
-        System.out.println("Gerando relatório");
+        final String MENU_RELATORIO = "Gere relatório:\n" +
+                "[1] Gerar relatorio .txt \n" +
+                "[2] Gerar relatorio em tala \n" +
+                "[0] Sair";
 
+        System.out.println(MENU_RELATORIO);
+        int escolha = sc.nextInt();
+
+        switch (escolha) {
+            case 1:
+                fachada.gerarRelatorioArquivoTxt();
+
+            case 2:
+                fachada.gerarRelatorioString();
+        }
     }
 
     public int pegarCodigoAnimal() {
@@ -181,49 +237,6 @@ public class Main {
         }
 
         return tamanhoPelo;
-    }
-
-    public void cadastrarBanho() {
-        TamanhoAnimal tamanhoAnimal = null;
-        TamanhoPelo tamanhoPelo = null;
-        int codigo = 0;
-
-        System.out.println("Banho selecionado. Insira as informações: \n");
-
-        codigo = pegarCodigoAnimal();
-        tamanhoAnimal = pegarTamanhoAnimal();
-        tamanhoPelo = pegarTamanhoPelo();
-
-        fachada.adicionaBanho(codigo, tamanhoAnimal, tamanhoPelo);
-        System.out.println("Banho cadastrado com sucesso!");
-    }
-
-    public void cadastrarHotel() {
-        TamanhoAnimal tamanhoAnimal = null;
-        int qtdHoras = 0;
-        int codigo = 0;
-
-        System.out.println("Hotelzinho selecionado. Insira as informações: \n");
-
-        codigo = pegarCodigoAnimal();
-        tamanhoAnimal = pegarTamanhoAnimal();
-        qtdHoras = pegarQtdHoras();
-
-        fachada.adicionaHotel(codigo, tamanhoAnimal, qtdHoras);
-        System.out.println("Hotelzinho cadastrado com sucesso!");
-    }
-
-    public void cadastrarTosa() {
-        TamanhoAnimal tamanhoAnimal = null;
-        int codigo = 0;
-
-        System.out.println("Tosa selecionado. Insira as informações: \n");
-
-        codigo = pegarCodigoAnimal();
-        tamanhoAnimal = pegarTamanhoAnimal();
-
-        fachada.adicionaTosa(codigo, tamanhoAnimal);
-        System.out.println("Tosa cadastrada com sucesso!");
     }
 
     public boolean isValidAnimal(String tamanho) {
