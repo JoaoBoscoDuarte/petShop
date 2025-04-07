@@ -3,10 +3,7 @@ package main;
 import facade.PetshopFacade;
 import model.enums.TamanhoAnimal;
 import model.enums.TamanhoPelo;
-
 import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Main {
 
@@ -29,15 +26,19 @@ public class Main {
         switch (escolha) {
             case 1:
                 cadastrarServico();
+                break;
 
             case 2:
                 calcularServico();
+                break;
 
             case 3:
                 listarServico();
+                break;
 
             case 4:
                 gerarRelatorio();
+                break;
 
             case 5:
                 return;
@@ -45,24 +46,28 @@ public class Main {
     }
 
     public int menu() {
-        final String MENU = "Seja bem vindo ao Super Mega Petshop Legal!\n" +
-                "Escolha uma das opções a seguir para prosseguir: \n" +
-                "[1] Cadastrar serviço \n" +
-                "[2] Calcular serviço \n" +
-                "[3] Listar serviços \n" +
-                "[4] Gerar relatório de serviços \n" +
-                "[0] Sair \n";
+        final String MENU = """
+                Seja bem vindo ao Super Mega Petshop Legal!
+                Escolha uma das opções a seguir para prosseguir:\s
+                [1] Cadastrar serviço\s
+                [2] Calcular serviço\s
+                [3] Listar serviços\s
+                [4] Gerar relatório de serviços\s
+                [0] Sair\s
+                """;
 
         System.out.println(MENU);
         return sc.nextInt();
     }
 
     public void cadastrarServico() {
-        final String SERVICOS = "Serviços do petshop: \n" +
-                "[1] Banho \n" +
-                "[2] Hotel \n" +
-                "[3] Tosa \n" +
-                "[4] Voltar \n";
+        final String SERVICOS = """
+                Serviços do petshop:\s
+                [1] Banho\s
+                [2] Hotel\s
+                [3] Tosa\s
+                [4] Voltar\s
+                """;
 
         boolean continuar = true;
         while (continuar) {
@@ -72,25 +77,29 @@ public class Main {
             switch (escolha) {
                 case 1:
                     cadastrarBanho();
+                    break;
 
                 case 2:
                     cadastrarHotel();
+                    break;
 
                 case 3:
                     cadastrarTosa();
+                    break;
 
                 case 4:
                     System.out.println("Voltar");
                     continuar = false;
+                    break;
             }
         }
 
     }
 
     public void cadastrarBanho() {
-        TamanhoAnimal tamanhoAnimal = null;
-        TamanhoPelo tamanhoPelo = null;
-        int codigo = 0;
+        TamanhoAnimal tamanhoAnimal;
+        TamanhoPelo tamanhoPelo;
+        int codigo;
 
         System.out.println("Banho selecionado. Insira as informações: \n");
 
@@ -103,9 +112,9 @@ public class Main {
     }
 
     public void cadastrarHotel() {
-        TamanhoAnimal tamanhoAnimal = null;
-        int qtdHoras = 0;
-        int codigo = 0;
+        TamanhoAnimal tamanhoAnimal;
+        int qtdHoras;
+        int codigo;
 
         System.out.println("Hotelzinho selecionado. Insira as informações: \n");
 
@@ -118,8 +127,8 @@ public class Main {
     }
 
     public void cadastrarTosa() {
-        TamanhoAnimal tamanhoAnimal = null;
-        int codigo = 0;
+        TamanhoAnimal tamanhoAnimal;
+        int codigo;
 
         System.out.println("Tosa selecionado. Insira as informações: \n");
 
@@ -141,10 +150,11 @@ public class Main {
     }
 
     public void gerarRelatorio() {
-        final String MENU_RELATORIO = "Gere relatório:\n" +
-                "[1] Gerar relatorio .txt \n" +
-                "[2] Gerar relatorio em tala \n" +
-                "[0] Sair";
+        final String MENU_RELATORIO = """
+                Gere relatório:
+                [1] Gerar relatorio .txt\s
+                [2] Gerar relatorio em tala\s
+                [0] Sair""";
 
         System.out.println(MENU_RELATORIO);
         int escolha = sc.nextInt();
@@ -180,6 +190,7 @@ public class Main {
             try {
                 System.out.println("Insira a quatidade de horas que o animal vai passar no hotelzinho: ");
                 qtdHoras = sc.nextInt();
+                repetir = false;
 
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
@@ -190,6 +201,7 @@ public class Main {
     }
 
     public TamanhoAnimal pegarTamanhoAnimal() {
+        sc.nextLine();
         TamanhoAnimal tamanhoAnimal = null;
         boolean repetir = true;
 
