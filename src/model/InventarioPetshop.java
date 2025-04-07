@@ -46,4 +46,21 @@ public class InventarioPetshop {
 
         return exibir;
     }
+
+    public void gerarRelatorioArquivo() {
+
+    }
+
+    public String gerarRelatorioString() {
+        StringBuilder exibir = new StringBuilder();
+
+        exibir.append("Relatório de serviços: \n");
+        exibir.append("======================== \n");
+
+        for (int j = 0; j < servicos.size(); j++) {
+            exibir.append(servicos.get(j).descricao());
+        }
+
+        return exibir.toString();
+    }
 }

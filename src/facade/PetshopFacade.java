@@ -24,7 +24,7 @@ public class PetshopFacade {
         inventario.adicionaServico(hotel);
     }
 
-    public void adicionatosa(int codigo, TamanhoAnimal tamAnimal) {
+    public void adicionaTosa(int codigo, TamanhoAnimal tamAnimal) {
         Tosa tosa = new Tosa(codigo, tamAnimal);
         inventario.adicionaServico(tosa);
     }
